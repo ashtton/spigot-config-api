@@ -31,13 +31,8 @@ public class Config {
         config = new YamlConfiguration();
         try { config.load(file); } catch(Exception e) { e.printStackTrace(); }
     }
-    public void save() {
-        try {
-            config.save(file);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
+    
+    public void save() { try { config.save(file); } catch(Exception e) { e.printStackTrace(); } }
 
     public File getFile() { return file; }
     public YamlConfiguration getConfig() { return config; }
