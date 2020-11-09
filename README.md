@@ -38,28 +38,6 @@ public class Config {
             e.printStackTrace();
         }
     }
-    public String getColoredString(String path) {
-        return ChatColor.translateAlternateColorCodes('&', config.getString(path));
-    }
-
-    public void setLocation(Location loc, String place) {
-        config.set(place + ".WORLD", loc.getWorld().getName());
-        config.set(place + ".X", loc.getX());
-        config.set(place + ".Y", loc.getY());
-        config.set(place + ".Z", loc.getZ());
-        config.set(place + ".YAW", loc.getYaw());
-        config.set(place + ".PITCH", loc.getPitch());
-        save();
-    }
-
-    public Location getLocation(String place) {
-        return new Location(Bukkit.getWorld(config.getString(place + ".WORLD")), config.getDouble(place + ".X"), config.getDouble(place + ".Y"), config.getDouble(place + ".Z"), config.getLong(place + ".YAW"), config.getLong(place + ".PITCH"));
-    }
-
-    @SuppressWarnings("unchecked")
-    public ItemStack[] getItemArray(String path) {
-        return ((List<ItemStack>) config.get(path)).toArray(new ItemStack[0]);
-    }
 
     public File getFile() { return file; }
     public YamlConfiguration getConfig() { return config; }
